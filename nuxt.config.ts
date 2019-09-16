@@ -1,5 +1,6 @@
 export default {
   env: {},
+  mode: "spa",
   head: {
     title: "kankore_clone",
     meta: [
@@ -12,6 +13,11 @@ export default {
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+  },
+
+  server: {
+    port: 3000,
+    host: "0.0.0.0"
   },
   loading: { color: "#3B8070" },
   css: ["~/assets/css/main.css"],
