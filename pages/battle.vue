@@ -1,0 +1,49 @@
+<template>
+  <section>
+    <h1 class="header">ばとる</h1>
+    <div>
+      <p>あなたのHP {{hp}}</p>
+      <p></p>
+      <p>敵のHP {{enemy_hp}}</p>
+      <p></p>
+      <button @pointerdown="attack">攻撃</button>
+      <div>
+        <p v-for="(message, i) in messages" :key="i">{{message}}</p>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "nuxt-property-decorator";
+import { State } from "vuex-class";
+import { Person } from "~/types";
+
+@Component({
+  components: {}
+})
+export default class Battle extends Vue {
+  hp = 5;
+  enemy_hp = 5;
+  messages: string[] = [];
+
+  attack() {
+    this.enemy_hp--;
+    this.messages.push("1のダメージを与えた");
+    if (this.enemy_hp <= 0) {
+      this.messages.push("敵を倒した");
+    }
+  }
+}
+</script>
+
+<style scoped>
+.header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

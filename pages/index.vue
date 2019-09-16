@@ -3,7 +3,9 @@
     <h1 class="header">かんこれっぽい</h1>
     <div>
       <ul>
-        <li>出撃</li>
+        <li>
+          <router-link to="battle">出撃</router-link>
+        </li>
         <li>編成</li>
         <li>改装</li>
         <li>公社</li>
@@ -23,9 +25,7 @@ import { Person } from "~/types";
 @Component({
   components: {}
 })
-export default class extends Vue {
-  @State people!: Person;
-}
+export default class extends Vue {}
 </script>
 
 <style scoped>
