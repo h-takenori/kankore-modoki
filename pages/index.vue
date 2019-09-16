@@ -1,7 +1,17 @@
 <template>
   <section>
-    <h1 class="header">Nuxt TypeScript Starter</h1>
-    <div class="cards"></div>
+    <h1 class="header">かんこれっぽい</h1>
+    <div>
+      <ul>
+        <li>出撃</li>
+        <li>編成</li>
+        <li>改装</li>
+        <li>公社</li>
+        <li>工廠</li>
+        <li>入渠</li>
+        <li>補給</li>
+      </ul>
+    </div>
   </section>
 </template>
 

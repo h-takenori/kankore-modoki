@@ -14,7 +14,9 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-
+  router: {
+    mode: "hash"
+  },
   server: {
     port: 3000,
     host: "0.0.0.0"
