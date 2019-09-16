@@ -6,7 +6,12 @@
       <p></p>
       <p>敵のHP {{enemy_hp}}</p>
       <p></p>
-      <button @pointerdown="attack">攻撃</button>
+      <div v-if="battle_state == 0">
+        <button @pointerdown="attack">攻撃</button>
+      </div>
+      <div v-else>
+        <router-link to="/">戻る</router-link>
+      </div>
       <div>
         <p v-for="(message, i) in messages" :key="i">{{message}}</p>
       </div>
@@ -27,11 +32,22 @@ export default class Battle extends Vue {
   enemy_hp = 5;
   messages: string[] = [];
 
+  //戦闘状態0:戦闘中 1:勝利 -1:敗北
+  battle_state = 0;
+
   attack() {
     this.enemy_hp--;
     this.messages.push("1のダメージを与えた");
     if (this.enemy_hp <= 0) {
       this.messages.push("敵を倒した");
+      this.battle_state = 1;
+    } else {
+      this.hp--;
+      this.messages.push("1のダメージを受けた");
+      if (this.hp <= 0) {
+        this.messages.push("負けた");
+        this.battle_state = -1;
+      }
     }
   }
 }
